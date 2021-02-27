@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smoothie Selection</title>
+</head>
+<body>
+<div align="center">
+    <section id="done">
+        <h2> Check off which fruits you have: </h2>
+        <form method="post">
+            <input type="checkbox" name="banana" value="fruit"> banana </input>
+            <button type="submit" class="w3-center w3-button w3-blue" >Add Your Score to the Leaderboard!</button>
+        </form>
+    </section>
+</div>
+
+{% for b in fruits %}
+
+{{b.banana}}
+
+{%  endfor %}
+
+</body>
+</html>
