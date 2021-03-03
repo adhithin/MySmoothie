@@ -6,18 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def selection():
-    fruits = 'nothing'
-
-    if request.method == 'POST':
-        banana = request.form['banana']
-
-        if banana == 1:
-            print("yay")
-
-        for b in fruits:
-            print("yay")
-
-    return render_template('selection.html')
+    return render_template('home.html')
 
 
 if __name__ == "__main__":
