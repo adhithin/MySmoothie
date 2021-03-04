@@ -14,16 +14,28 @@ def home():
 
 @app.route('/get-your-smoothie', methods=['GET', 'POST'])
 def find():
-    if form.getvalue('Apple'):
-        fruit1 = "ON"
-        print("amazing")
-    else:
-        fruit1 = "OFF"
-    if form.getvalue('Banana'):
-        fruit2 = "ON"
-    else:
-        fruit2 = "OFF"
-    return render_template('selection.html')
+    fruits = 'nothing'
+    if request.method == 'POST':
+        fruit1 = request.form['fruit1']
+        print("here's some things you can do with apples")
+
+    for fruit in fruits:
+        if form.getvalue('Apple'):
+            print("The email address is '" + email + "'")
+            return redirect('/')
+        else:
+            fruit1 = "OFF"
+            return render_template("selection.html")
+        if form.getvalue('Banana'):
+            fruit2 = "ON"
+            return render_template("fruit1.html")
+        else:
+            fruit2 = "OFF"
+            return render_template("selection.html")
+
+
+
+    return render_template("selection.html")
 
 
 

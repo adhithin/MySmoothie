@@ -60,8 +60,8 @@
     }
 
     input[type=checkbox]:checked + label:before {
-        background-color: MediumSeaGreen;
-        border-color: MediumSeaGreen;
+        background-color: Pink;
+        border-color: Pink;
         color: #fff;
     }
 
@@ -85,11 +85,11 @@
 <div class="w3-top">
     <div class="w3-bar w3-2021-french-blue w3-card w3-left-align w3-large">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-2021-raspberry-sorbet" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 1</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">FIND</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">MATCH</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">PICK</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">MAKE</a>
     </div>
 
     <!-- Navbar on small screens -->
@@ -115,7 +115,7 @@
     <div class="card w3-white" style="border-radius:20px;">
         <h5 class="w3-center w3-padding-16 w3-text-blue" style="font-family:Roboto; font-size: 30px"><strong> #1: FIND A SMOOTHIE</strong></h5>
         <h2 style="font-family:Roboto; font-size: 20px">Choose which fruits you have:</h2>
-        <form><div align="center">
+        <form><div align="left">
             <section id="done">
                 <form id="form" action="/cgi-bin/checkbox.cgi" method="POST">
                     <form>
@@ -129,7 +129,7 @@
                         <label for="fruit4">Strawberry</label>
                     </form>
 
-                    <button type="submit" class="w3-center w3-button w3-blue" style="border-radius:10px"> FIND </button>
+                    <button align="center" type="submit" class="w3-center w3-button w3-blue" style="border-radius:10px"> FIND </button>
                 </form>
             </section>
         </div>
