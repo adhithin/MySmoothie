@@ -5,8 +5,12 @@ from flask import request
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def selection():
+def home():
     return render_template('home.html')
+
+@app.route('/get-your-smoothie', methods=['GET', 'POST'])
+def find():
+    return render_template('selection.html')
 
 
 if __name__ == "__main__":
