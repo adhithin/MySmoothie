@@ -37,6 +37,10 @@ def find():
 
     return render_template("selection.html")
 
+@app.route('/browse-recipes', methods=['GET', 'POST'])
+def browse():
+    return render_template('browse.html')
+
 
 
 if __name__ == "__main__":
