@@ -19,7 +19,7 @@ def find():
         fruits = request.form.getlist('fruits')
         print(fruits)
         if 'Bananas' and 'Strawberries' in fruits:
-            return render_template("home.html")
+            return render_template("bananas&strawberries.html")
         if 'Bananas' in fruits:
             return render_template("bananas.html")
         #for fruit in fruits:
