@@ -16,7 +16,9 @@ def home():
 def find():
     fruits = 'nothing'
     if request.method == 'POST':
-        print(request.form.getlist('fruits'))
+        fruits = request.form.getlist('fruits')
+        print(fruits)
+        return render_template("selection.html")
     return render_template("selection.html")
 
 @app.route('/browse-recipes', methods=['GET', 'POST'])
