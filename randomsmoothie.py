@@ -18,7 +18,16 @@ def find():
     if request.method == 'POST':
         fruits = request.form.getlist('fruits')
         print(fruits)
-        return render_template("selection.html")
+        if 'Bananas' and 'Strawberries' in fruits:
+            return render_template("home.html")
+        if 'Bananas' in fruits:
+            return render_template("bananas.html")
+        #for fruit in fruits:
+        #if fruits == 'Bananas' and fruits == "Strawberries":
+            #return render_template("bananas.html")
+        #if fruits == 'Strawberries':
+            #return render_template("home.html")
+        #return render_template("selection.html")
     return render_template("selection.html")
 
 @app.route('/browse-recipes', methods=['GET', 'POST'])
