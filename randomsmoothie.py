@@ -16,25 +16,7 @@ def home():
 def find():
     fruits = 'nothing'
     if request.method == 'POST':
-        fruit1 = request.form['fruit1']
-        print("here's some things you can do with apples")
-
-    for fruit in fruits:
-        if form.getvalue('Apple'):
-            print("The email address is '" + email + "'")
-            return redirect('/')
-        else:
-            fruit1 = "OFF"
-            return render_template("selection.html")
-        if form.getvalue('Banana'):
-            fruit2 = "ON"
-            return render_template("fruit1.html")
-        else:
-            fruit2 = "OFF"
-            return render_template("selection.html")
-
-
-
+        print(request.form.get('fruits'))
     return render_template("selection.html")
 
 @app.route('/browse-recipes', methods=['GET', 'POST'])
