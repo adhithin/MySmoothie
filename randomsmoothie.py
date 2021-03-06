@@ -1,12 +1,39 @@
 import os
 from flask import Flask, render_template, flash, redirect, url_for, session, logging
 from flask import request
-import cgi, cgitb
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 # Create instance of FieldStorage
 
-form = cgi.FieldStorage()
-
 app = Flask(__name__)
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+# Connects our Flask App to our Database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#OMG SO IMPORTANT TO INCLUDE THIS ABOVE! Warnings up the wazoo if not here on a develoment server.
+
+db = SQLAlchemy(app)
+
+class Recipes(db.Model):
+    __tablename__ = 'recipes'
+    id = db.Column(db.Integer, primary_key=True)
+    # not planning to delete scores, but still a good practice
+    p_recipe = db.Column(db.String(10), unique=False, nullable=False)
+    p_ingredients = db.Column(db.String(10), unique=False, nullable=False) # want score as int so we can sort by it easily.
+    p_steps = db.Column(db.String(10), unique=False, nullable=False)
+
+    def __init__(self, p_recipe, p_ingredients, p_steps):
+        self.p_recipe = p_recipe
+        self.p_ingredients = p_ingredients
+        self.p_steps = p_steps
+
+    def __repr__(self):
+        return f"{self.p_recipe},{self.p_ingredients}, {self.p_steps}"
+
+#must go after 'models'
+db.create_all();
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -24,17 +51,33 @@ def find():
             return render_template("bananas.html")
         if 'Strawberries' in fruits:
             return render_template("home.html")
-        #for fruit in fruits:
-        #if fruits == 'Bananas' and fruits == "Strawberries":
-            #return render_template("bananas.html")
-        #if fruits == 'Strawberries':
-            #return render_template("home.html")
-        #return render_template("selection.html")
     return render_template("selection.html")
 
 @app.route('/browse-recipes', methods=['GET', 'POST'])
 def browse():
     return render_template('browse.html')
+
+@app.route('/add-recipes', methods=['GET', 'POST'])
+def addrecipes():
+    recipes = 'nothing'
+    if request.method == 'POST':
+        recipe = request.form['recipe']
+        ingredients = int(request.form['ingredients'])
+        steps = request.form['steps']
+
+        new_recipe = Recipe(recipe, ingredients, steps)
+        db.session.add(new_recipe)
+        db.session.commit()
+
+        listRecipes = Score.query.filter_by(p_recipe=recipe).order_by('p_recipe').all()
+        listRecipes = []
+
+        for listRecipe in listRecipes:
+            recipe_dict = {'recipe':listRecipe.p_recipe, 'ingredients':listRecipe.p_steps}
+            listRecipes.append(recipe_dict)
+
+    return render_template("addrecipe.html")
+
 
 
 

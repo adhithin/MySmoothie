@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Recipe</title>
+
+    <style>
+        body,h5,h2,h3,h4,h6 {font-family: "Lato", sans-serif}
+        h1, label, input {font-family: "Roboto", sans-serif}
+        h1 {font-size:50px}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+
+        .bgimg {
+            background-position: center;
+            background-size: cover;
+            background-color: red;
+        }
+
+        div.card {
+            width: 450px;
+            length: 450px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+        }
+
+        input[type=checkbox] + label {
+            display: block;
+            margin: 0.2em;
+            cursor: pointer;
+            padding: 0.2em;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        input[type=checkbox] + label:before {
+            content: "\2714";
+            border: 0.1em solid #000;
+            border-radius: 0.2em;
+            display: inline-block;
+            width: 2em;
+            height: 1em;
+            padding-left: 0.2em;
+            padding-bottom: 0.3em;
+            margin-right: 0.2em;
+            vertical-align: bottom;
+            color: transparent;
+            transition: .2s;
+        }
+
+        input[type=checkbox] + label:active:before {
+            transform: scale(0);
+        }
+
+        input[type=checkbox]:checked + label:before {
+            background-color: Pink;
+            border-color: Pink;
+            color: #fff;
+        }
+
+        input[type=checkbox]:disabled + label:before {
+            transform: scale(1);
+            border-color: #aaa;
+        }
+
+        input[type=checkbox]:checked:disabled + label:before {
+            transform: scale(1);
+            background-color: #bfb;
+            border-color: #bfb;
+        }
+    </style>
+</head>
+<body>
+
+<div align="center">
+    <section id="done">
+        <h2> ADD YOUR SCORE TO LEADERBOARD </h2>
+        <form action="" method="POST">
+            <label for="recipe">What's the name of your recipe?</label>
+            <input id="name" type="text" name="recipe" placeholder="Your Recipe Title">
+            <label for="ingredients">What ingredients do we need? </label>
+                <input type="checkbox" id="fruit1" name="ingredients" value="Bananas">
+                <label for="fruit1">Bananas</label>
+                <input type="checkbox" id="fruit2" name="ingredients" value="Strawberries">
+                <label for="fruit2">Strawberries</label>
+                <input type="checkbox" id="fruit3" name="ingredients" value="Blueberries">
+                <label for="fruit3">Blueberries</label>Blueberries </input>
+            <label for="steps">What are the steps to make it? </label>
+            <input type="text" name="steps" placeholder="List the steps here">
+            <button type="submit" class="w3-center w3-button w3-blue" >Add Your Score to the Leaderboard!</button>
+        </form>
+    </section>
+</div>
+</body>
+</html>

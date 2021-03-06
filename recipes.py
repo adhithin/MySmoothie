@@ -14,7 +14,7 @@ class Recipes(db.Model):
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
     # not planning to delete scores, but still a good practice
-    p_recipe = db.Column(unique=False, nullable=False)
+    p_recipe = db.Column(db.String(10), unique=False, nullable=False)
     p_ingredients = db.Column(unique=False, nullable=False) # want score as int so we can sort by it easily.
     p_steps = db.Column(unique=False, nullable=False)
 
