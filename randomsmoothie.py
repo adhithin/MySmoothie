@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Recipes(db.Model):
-    __tablename__ = 'recipes'
+    __tablename__ = 'Recipe'
     id = db.Column(db.Integer, primary_key=True)
     # not planning to delete scores, but still a good practice
     p_recipe = db.Column(db.String(10), unique=False, nullable=False)
@@ -59,17 +59,17 @@ def browse():
 
 @app.route('/add-recipes', methods=['GET', 'POST'])
 def addrecipes():
-    recipes = 'nothing'
+    Recipe = 'nothing'
     if request.method == 'POST':
         recipe = request.form['recipe']
-        ingredients = int(request.form['ingredients'])
+        ingredients = request.form.getlist('ingredients')
         steps = request.form['steps']
 
         new_recipe = Recipe(recipe, ingredients, steps)
         db.session.add(new_recipe)
         db.session.commit()
 
-        listRecipes = Score.query.filter_by(p_recipe=recipe).order_by('p_recipe').all()
+        listRecipes = Recipes.query.filter_by(p_recipe=recipe).order_by('p_recipe').all()
         listRecipes = []
 
         for listRecipe in listRecipes:
@@ -77,9 +77,6 @@ def addrecipes():
             listRecipes.append(recipe_dict)
 
     return render_template("addrecipe.html")
-
-
-
 
 if __name__ == "__main__":
     #runs the application on the repl development server
