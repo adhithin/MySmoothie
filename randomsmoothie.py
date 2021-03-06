@@ -22,6 +22,8 @@ def find():
             return render_template("bananas&strawberries.html")
         if 'Bananas' in fruits:
             return render_template("bananas.html")
+        if 'Strawberries' in fruits:
+            return render_template("home.html")
         #for fruit in fruits:
         #if fruits == 'Bananas' and fruits == "Strawberries":
             #return render_template("bananas.html")
