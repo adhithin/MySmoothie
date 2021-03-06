@@ -12,7 +12,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # Connects our Flask App to our Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#OMG SO IMPORTANT TO INCLUDE THIS ABOVE! Warnings up the wazoo if not here on a develoment server.
+#OMG SO IMPORTANT TO INCLUDE THIS ABOVE! Warnings up the wazoo if not here on a development server.
 
 db = SQLAlchemy(app)
 
@@ -45,11 +45,15 @@ def find():
     if request.method == 'POST':
         fruits = request.form.getlist('fruits')
         print(fruits)
+        if 'Bananas' and 'Strawberries' and 'Blueberries' in fruits:
+            return render_template("bananas&strawberries.html")
         if 'Bananas' and 'Strawberries' in fruits:
             return render_template("bananas&strawberries.html")
         if 'Bananas' in fruits:
             return render_template("bananas.html")
         if 'Strawberries' in fruits:
+            return render_template("home.html")
+        if 'Blueberries' in fruits:
             return render_template("home.html")
     return render_template("selection.html")
 
@@ -62,7 +66,7 @@ def addrecipes():
     Recipe = 'nothing'
     if request.method == 'POST':
         recipe = request.form['recipe']
-        ingredients = request.form.getlist('ingredients')
+        ingredients = request.form.getlist['ingredients']
         steps = request.form['steps']
 
         new_recipe = Recipe(recipe, ingredients, steps)
@@ -77,6 +81,11 @@ def addrecipes():
             listRecipes.append(recipe_dict)
 
     return render_template("addrecipe.html")
+
+@app.route('/get-your-smoothie/bananas', methods=['GET', 'POST'])
+def bananas():
+    return render_template("bananas.html")
+
 
 if __name__ == "__main__":
     #runs the application on the repl development server

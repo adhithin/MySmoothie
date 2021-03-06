@@ -1,10 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2019.css">
+<style>
+    body,h5,h2,h3,h4,h6 {font-family: "Lato", sans-serif}
+    h1, label, input {font-family: "Roboto", sans-serif}
+    h1 {font-size:50px}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+
+    .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-color: red;
+    }
+
+    div.card {
+        width: 450px;
+        length: 450px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+    }
+
+    input[type=checkbox] + label {
+        display: block;
+        margin: 0.2em;
+        cursor: pointer;
+        padding: 0.2em;
+    }
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+    input[type=checkbox] + label:before {
+        content: "\2714";
+        border: 0.1em solid #000;
+        border-radius: 0.2em;
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        padding-left: 0.2em;
+        padding-bottom: 0.3em;
+        margin-right: 0.2em;
+        vertical-align: bottom;
+        color: transparent;
+        transition: .2s;
+    }
+
+    input[type=checkbox] + label:active:before {
+        transform: scale(0);
+    }
+
+    input[type=checkbox]:checked + label:before {
+        background-color: Pink;
+        border-color: Pink;
+        color: #fff;
+    }
+
+    input[type=checkbox]:disabled + label:before {
+        transform: scale(1);
+        border-color: #aaa;
+    }
+
+    input[type=checkbox]:checked:disabled + label:before {
+        transform: scale(1);
+        background-color: #bfb;
+        border-color: #bfb;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
-    <title>Bananas and Strawberries</title>
+    <title> MySmoothie Selection </title>
+
 </head>
-<body>
-<p> hi there strawbuddies!</p>
+
+<div class="w3-top">
+    <div class="w3-bar w3-2021-french-blue w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-2021-light-coral" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-2021-burnt-coral" >Home</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">FIND</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">MATCH</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">PICK</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">MAKE</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-2021-burnt-coral">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+    </div>
+</div>
+
+<body style="background-color:Turquoise;">
+
+<header class="w3-container w3-left " style="padding:64px">
+    <h1 style="font-size: 100px, font:Roboto"><strong> Smoothies with Bananas + Strawberries!</strong></h1>
+
+    </div>
+</header>
+
+
+
+<div>
+</div>
+
+
+
+
+
 </body>
 </html>
