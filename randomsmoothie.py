@@ -64,9 +64,10 @@ def browse():
 @app.route('/add-recipes', methods=['GET', 'POST'])
 def addrecipes():
     Recipe = 'nothing'
+
     if request.method == 'POST':
         recipe = request.form['recipe']
-        ingredients = request.form.getlist['ingredients']
+        ingredients = request.form.getlist('ingredients')
         steps = request.form['steps']
 
         new_recipe = Recipe(recipe, ingredients, steps)
