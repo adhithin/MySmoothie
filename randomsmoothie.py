@@ -63,23 +63,25 @@ def browse():
 
 @app.route('/add-recipes', methods=['GET', 'POST'])
 def addrecipes():
-    Recipe = 'nothing'
+    fullRecipe ='nothing'
 
     if request.method == 'POST':
         recipe = request.form['recipe']
-        ingredients = request.form.getlist('ingredients')
         steps = request.form['steps']
+        #the code below confirmed I had the proper data. Now to add it to the db.
+        #print(Score(name, score, game))
 
-        new_recipe = Recipe(recipe, ingredients, steps)
+        new_recipe = Recipes(recipe, steps)
         db.session.add(new_recipe)
         db.session.commit()
 
-        listRecipes = Recipes.query.filter_by(p_recipe=recipe).order_by('p_recipe').all()
-        listRecipes = []
+        #query the db for the relevant scores on this table:
+        listRecipes = Score.query.filter_by(p_game=game).order_by('p_score').all()
+        allRecipes = []
 
         for listRecipe in listRecipes:
-            recipe_dict = {'recipe':listRecipe.p_recipe, 'ingredients':listRecipe.p_steps}
-            listRecipes.append(recipe_dict)
+            recipe_dict = {'name':listRecipes.p_recipe, 'score':listRecipes.p_steps}
+            allRecipes.append(recipe_dict)
 
     return render_template("addrecipe.html")
 
