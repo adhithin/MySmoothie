@@ -21,19 +21,18 @@ class Recipes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # not planning to delete scores, but still a good practice
     p_recipe = db.Column(db.String(10), unique=False, nullable=False)
-    p_ingredients = db.Column(db.String(10), unique=False, nullable=False) # want score as int so we can sort by it easily.
     p_steps = db.Column(db.String(10), unique=False, nullable=False)
 
-    def __init__(self, p_recipe, p_ingredients, p_steps):
+    def __init__(self, p_recipe, p_steps):
         self.p_recipe = p_recipe
-        self.p_ingredients = p_ingredients
         self.p_steps = p_steps
 
     def __repr__(self):
-        return f"{self.p_recipe},{self.p_ingredients}, {self.p_steps}"
+        return f"{self.p_recipe}, {self.p_steps}"
 
 #must go after 'models'
 db.create_all();
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -59,31 +58,37 @@ def find():
 
 @app.route('/browse-recipes', methods=['GET', 'POST'])
 def browse():
-    return render_template('browse.html')
-
-@app.route('/add-recipes', methods=['GET', 'POST'])
-def addrecipes():
-    fullRecipe ='nothing'
+    Recipes = 'nothing'
 
     if request.method == 'POST':
         recipe = request.form['recipe']
         steps = request.form['steps']
+
+    return render_template('browse.html')
+
+@app.route('/add-recipes', methods=['GET', 'POST'])
+def addrecipes():
+    if request.method == 'POST':
+        recipe = request.form['recipe']
+        steps = request.form['steps']
+
         #the code below confirmed I had the proper data. Now to add it to the db.
-        #print(Score(name, score, game))
+        print(recipe)
+        print(steps)
 
         new_recipe = Recipes(recipe, steps)
         db.session.add(new_recipe)
         db.session.commit()
 
-        #query the db for the relevant scores on this table:
-        listRecipes = Score.query.filter_by(p_game=game).order_by('p_score').all()
-        allRecipes = []
+    #query the db for the ratings:
+    recipe_book = Recipes.query.order_by(desc('p_recipe')).all()
+    recipeList = []
 
-        for listRecipe in listRecipes:
-            recipe_dict = {'name':listRecipes.p_recipe, 'score':listRecipes.p_steps}
-            allRecipes.append(recipe_dict)
+    for listrecipe in recipe_book:
+        recipe_dict = {'recipe':recipe.p_name, 'steps':recipe.p_steps}
+        recipeList.append(recipe_dict)
 
-    return render_template("addrecipe.html")
+    return render_template('addrecipe.html', recipeList = recipeList)
 
 @app.route('/get-your-smoothie/bananas', methods=['GET', 'POST'])
 def bananas():

@@ -106,13 +106,6 @@
         <form action="" method="POST">
             <label for="recipe">What's the name of your recipe?</label>
             <input id="name" type="text" name="recipe" placeholder="Your Recipe Title">
-            <label for="ingredients">What ingredients do we need? </label>
-            <input type="checkbox" id="fruit1" name="ingredients" value="Bananas">
-            <label for="fruit1">Bananas</label>
-            <input type="checkbox" id="fruit2" name="ingredients" value="Strawberries">
-            <label for="fruit2">Strawberries</label>
-            <input type="checkbox" id="fruit3" name="ingredients" value="Blueberries">
-            <label for="fruit3">Blueberries</label>
             <label for="steps">What are the steps to make it? </label>
             <input type="text" name="steps" placeholder="List the steps here">
             <button type="submit" class="w3-center w3-button w3-blue">Add Your Recipe!</button>
@@ -126,13 +119,11 @@
         <table class="score">
             <tr>
                 <th align="center" style="font-size: 15px"> RECIPE </th>
-                <th align="center" style="font-size: 15px"> INGREDIENTS </th>
                 <th align="center" style="font-size: 15px"> STEPS </th>
             </tr>
             {% for listRecipe in listRecipes %}
                 <tr>
                     <td align="center" style="font-family:Roboto; font-size: 15px">{{recipe.recipe}}</td>
-                    <td align="center" style="font-family:Roboto; font-size: 15px">{{recipe.ingredients}}</td>
                     <td align="center" style="font-family:Roboto; font-size: 15px">{{recipe.steps}}</td>
                 </tr>
             {%  endfor %}
