@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import smtplib
 
+
 bananaURL = 'https://en.wikipedia.org/wiki/Banana'
 
 headers = { "User-Agent":'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'}
@@ -15,6 +16,7 @@ title = soup.find(id="firstHeading").get_text()
 print(title)
 
 print(bananaURL)
+
 
 def send_email():
     server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -32,7 +34,7 @@ def send_email():
 
     server.sendmail(
         'adhithi.nmurthy07@gmail.com',
-        'adhithi.nmurthy07@gmail.com',
+        email = request.form['email'],
         msg
 
     )

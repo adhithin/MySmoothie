@@ -3,6 +3,10 @@ from flask import Flask, render_template, flash, redirect, url_for, session, log
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
+from bs4 import BeautifulSoup
+import smtplib
+
+
 # Create instance of FieldStorage
 
 app = Flask(__name__)
@@ -33,9 +37,36 @@ class Recipes(db.Model):
 #must go after 'models'
 db.create_all();
 
+def send_email():
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+
+    server.login('adhithi.nmurthy07@gmail.com', 'yavesbrwlogwvuaa')
+
+    subject = 'mar 11 bananas + test'
+
+    body = ' hiiii if you are getting this email, that means the program i just made is running and can send emails to people directly from the code. Check out the website to learn about Bananas: https://en.wikipedia.org/wiki/Banana'
+
+    msg = f"Subject: {subject}\n\n{body}"
+
+    server.sendmail(
+        'adhithi.nmurthy07@gmail.com',
+        email,
+        msg
+
+    )
+
+    server.quit()
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    if request.method == 'POST':
+        email = request.form['email']
+        send_email()
+
     return render_template('home.html')
 
 @app.route('/get-your-smoothie', methods=['GET', 'POST'])
@@ -90,9 +121,7 @@ def addrecipes():
 
     return render_template('addrecipe.html', recipeList = recipeList)
 
-@app.route('/get-your-smoothie/bananas', methods=['GET', 'POST'])
-def bananas():
-    return render_template("bananas.html")
+
 
 
 if __name__ == "__main__":
