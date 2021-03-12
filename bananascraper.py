@@ -24,17 +24,17 @@ def send_email():
 
     server.login('adhithi.nmurthy07@gmail.com', 'yavesbrwlogwvuaa')
 
-    subject = 'Bananas'
+    subject = 'mar 11 bananas + test'
 
-    body = 'Check the website to learn about Bananas' \
-           'https://en.wikipedia.org/wiki/Banana'
+    body = ' hiiii if you are getting this email, that means the program i just made is running and can send emails to people directly from the code. Check out the website to learn about Bananas: https://en.wikipedia.org/wiki/Banana'
 
     msg = f"Subject: {subject}\n\n{body}"
 
     server.sendmail(
         'adhithi.nmurthy07@gmail.com',
         'adhithi.nmurthy07@gmail.com',
-        'msg'
+        msg
+
     )
 
     print("email has been sent!")
