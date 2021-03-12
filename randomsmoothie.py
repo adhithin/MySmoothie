@@ -37,34 +37,36 @@ class Recipes(db.Model):
 #must go after 'models'
 db.create_all();
 
-def send_email():
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.ehlo()
-    server.starttls()
-    server.ehlo()
 
-    server.login('adhithi.nmurthy07@gmail.com', 'yavesbrwlogwvuaa')
-
-    subject = 'mar 11 bananas + test'
-
-    body = ' hiiii if you are getting this email, that means the program i just made is running and can send emails to people directly from the code. Check out the website to learn about Bananas: https://en.wikipedia.org/wiki/Banana'
-
-    msg = f"Subject: {subject}\n\n{body}"
-
-    server.sendmail(
-        'adhithi.nmurthy07@gmail.com',
-        email,
-        msg
-
-    )
-
-    server.quit()
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         email = request.form['email']
+        def send_email():
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+
+            server.login('adhithi.nmurthy07@gmail.com', 'yavesbrwlogwvuaa')
+
+            subject = 'mar 11 bananas + test'
+
+            body = ' hiiii if you are getting this email, that means the program i just made is running and can send emails to people directly from the code. Check out the website to learn about Bananas: https://en.wikipedia.org/wiki/Banana'
+
+            msg = f"Subject: {subject}\n\n{body}"
+
+            server.sendmail(
+                'adhithi.nmurthy07@gmail.com',
+                email,
+                msg
+
+            )
+
+            server.quit()
+
         send_email()
 
     return render_template('home.html')
