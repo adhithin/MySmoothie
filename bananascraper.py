@@ -34,10 +34,8 @@ def send_email():
 
     server.sendmail(
         'adhithi.nmurthy07@gmail.com',
-        email = request.form['email'],
-        msg
-
-    )
+        'adhithi.nmurthy07@gmail.com',
+        msg )
 
     print("email has been sent!")
 
