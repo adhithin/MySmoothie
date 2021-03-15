@@ -11,3 +11,5 @@ Want a smoothie delivered to you? Order on the app - choose from an assortment o
 
 smart home: every day at 7:30 am, amazon alexa can 
 
+ordering form amazon fresh 
+
