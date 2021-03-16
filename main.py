@@ -88,6 +88,8 @@ def find():
             return render_template("home.html")
         if 'Blueberries' in fruits:
             return render_template("home.html")
+        if 'Apples' in fruits:
+            return render_template("home.html")
     return render_template("selection.html")
 
 @app.route('/browse-recipes', methods=['GET', 'POST'])
