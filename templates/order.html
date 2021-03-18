@@ -2,31 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MySmoothie</title>
+    <title>MySmoothie - Order</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
-    <style>
-        colors: (
-        "blue":       blue,
-        "indigo":     indigo,
-        "purple":     purple,
-        "pink":       pink,
-        "red":        red,
-        "orange":     orange,
-        "yellow":     yellow,
-        "green":      green,
-        "teal":       teal,
-        "cyan":       cyan,
-        "white":      white,
-        "gray":       gray-600,
-        "gray-dark":  gray-800
-        );
-
-    </style>
 </head>
 <body>
-
 <!---navbar---->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-red">
@@ -43,9 +23,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="/get-your-smoothie">Get your Smoothie</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/order">Order Ingredients</a>
-            </li
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
@@ -66,41 +43,37 @@
     </div>
 </nav>
 
+
 <!---jumbotron main title heading--->
 
-<div class="jumbotron bg-primary">
-    <h1 class="text-light bg-primary"> My Smoothie</h1>
-    <p class="text-light bg-primary">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+<div class="jumbotron bg-info">
+    <h1 class="text-light bg-info"> Order from Amazon Fresh</h1>
+    <p class="text-light bg-info">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
     <hr class="my-4">
-     <p class="lead">
-        <a class="btn btn-light btn-lg" href="#" role="button">Learn more</a>
-    </p>
 </div>
 
-<!---jumbotron fresh ordering from amazon--->
+<!---cards for various orders --->
 
-<div class="jumbotron bg-danger">
-    <h1 class="text-light bg-danger"> Fresh </h1>
-    <p class="text-light bg-danger">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p class="lead">
-        <a class="btn btn-light btn-lg" href="#" role="button">Order Now</a>
-    </p>
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Featured</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <button class="btn  my-2 my-sm-0 bg-light" href="https://www.amazon.com/alm/category/ref=cg_ProCats_1a1_w?almBrandId=QW1hem9uIEZyZXNo&node=16318981&redirect=rsp&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=alm-category-desktop-top-2&pf_rd_r=4FQA27P7D8D1HRGN6EHC&pf_rd_t=0&pf_rd_p=738d43f1-3846-4a80-ad8e-17259d7c4b98&pf_rd_i=6506977011">Search</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
 </div>
-
-<!---jumbotron fast find locations--->
-
-<div class="jumbotron bg-danger">
-    <h1 class="text-light bg-danger"> Fast</h1>
-    <p class="text-light bg-danger">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p class="lead">
-        <a class="btn btn-light btn-lg" href="#" role="button">Find Locations</a>
-    </p>
-</div>
-
-
-
-
-</body>
-</html>

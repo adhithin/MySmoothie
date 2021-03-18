@@ -126,7 +126,9 @@ def addrecipes():
 
     return render_template('addrecipe.html', recipeList = recipeList)
 
-
+@app.route('/order', methods=['GET', 'POST'])
+def order():
+    return render_template("order.html")
 
 
 if __name__ == "__main__":
