@@ -1,18 +1,10 @@
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from models.module import UserTT, db, userDN
-from main import app
+import sqlite3
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
-
-@login_manager.user_loader
-def load_user_TT(user_id):
-    return UserTT.query.get(int(user_id))
-
-@login_manager.user_loader
-def load_user_DN(user_id):
-    return userDN.query.get(int(user_id))
-
-def model_logout_all():
-    logout_user()
+connection = sqlite3.connect("recipes.db")
+cursor = connection.cursor()
+cursor.execute("SELECT Site.lat, Site.long FROM Site;")
+results = cursor.fetchall()
+for r in results:
+    print(r)
+cursor.close()
+connection.close()

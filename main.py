@@ -130,6 +130,11 @@ def addrecipes():
 def order():
     return render_template("order.html")
 
+@app.route('/locations', methods=['GET', 'POST'])
+def locations():
+    return render_template("locations.html")
+
+
 
 if __name__ == "__main__":
     #runs the application on the repl development server
