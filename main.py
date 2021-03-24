@@ -6,11 +6,14 @@ from sqlalchemy import desc
 from bs4 import BeautifulSoup
 import smtplib
 import time
+import requests
 
 
-# Create instance of FieldStorage
+
 
 app = Flask(__name__)
+
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 

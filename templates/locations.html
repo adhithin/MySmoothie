@@ -1,44 +1,34 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Add Map</title>
-
-    <style type="text/css">
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 400px;
-            /* The height is 400 pixels */
-            width: 100%;
-            /* The width is the width of the web page */
-        }
-    </style>
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            const uluru = { lat: -25.344, lng: 131.036 };
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 4,
-                center: uluru,
-            });
-            // The marker, positioned at Uluru
-            const marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-            });
-        }
-    </script>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"type="text/javascript" charset="utf-8"></script>
 </head>
-<body>
-<h3>My Google Maps Demo</h3>
-<!--The div element for the map -->
-<div id="map"></div>
+<body style='margin: 0'>
+<div style="width: 100vw; height: 100vh" id="mapContainer"></div>
+<script>
+    // Initialize the platform object:
+    var platform = new H.service.Platform({
+        'apikey': '{{apikey}}'
+    });
 
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeff1_DKneKbBXbgi_Y-UCYet6DUqr1FM&callback=initMap&libraries=&v=weekly"
-        async
-></script>
+    const lng = {{longitude}};
+    const lat = {{latitude}};
+
+    // Obtain the default map types from the platform object
+    var defaultLayers = platform.createDefaultLayers();
+
+    // Instantiate (and display) a map object:
+    var map = new H.Map(
+        document.getElementById('mapContainer'),
+        defaultLayers.vector.normal.map,
+        {
+            zoom: 10,
+            center: { lat: lat, lng: lng }
+        });
+
+    const marker = new H.map.Marker({lat: lat, lng: lng});
+    map.addObject(marker);
+</script>
 </body>
 </html>
