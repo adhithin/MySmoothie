@@ -59,6 +59,11 @@
             color: #fff;
         }
 
+        body {
+            background-image: url("https://images.unsplash.com/photo-1585781832365-cd1e5c1298b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80");
+
+        }
+
     </style>
 </head>
 <body>
@@ -104,20 +109,18 @@
 
 <!---jumbotron main title heading--->
 
-<div class="jumbotron bg-danger">
-    <h1 class="text-light bg-danger"> Get Your Smoothie</h1>
-    <p class="text-light bg-danger">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+
+    <h1 class="text-danger"> Get Your Smoothie</h1>
     <hr class="my-4">
     <p class="lead">
-        <a class="btn btn-light btn-lg" href="#" role="button">Learn more</a>
-    </p>
-</div>
+        </p>
+
 
 <!---jumbotron selection form--->
 
 <div class="jumbotron bg-light">
-    <h1 class="bg-light"> Fresh </h1>
-    <p class="bg-light">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <h1 class="bg-light"> Choose your ingredients </h1>
+    <p class="bg-light">Choose what ingredients you have at home, and see what smoothies you can make!</p>
     <hr class="my-4">
     <div align="left">
         <section id="done">
@@ -135,6 +138,32 @@
         </section>
     </div>
 </div>
+
+<!---jumbotron class recs--->
+
+<div class="jumbotron bg-light">
+    <h1 class="bg-light"> Random selection </h1>
+    <p class="bg-light">Obtain a number of random smoothie recipes that you can choose from!</p>
+    <hr class="my-4">
+    <div align="left">
+        <h3>How many smoothies do you want? </h3>
+        <form id="fibForm" action="" method="POST" >
+            <input name="recs" id="recs" type="number" min="1" max="10" >
+            <button class="btn  my-2 my-sm-0 text-white bg-danger" type="submit"> Get smoothie recomendations!</button>
+        </form>
+    </div>
+
+    <h3>Here are your smoothie recs!</h3>
+        <!-- Number, List table -->
+        <table class="mx-auto">
+            <tr>
+                <th class="text-danger">smoothies: {{srecs.list}} </th>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
 
 </body>
 </html>

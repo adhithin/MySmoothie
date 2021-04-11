@@ -6,6 +6,60 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </head>
+<style>
+    colors: (
+    "blue":       blue,
+    "indigo":     indigo,
+    "purple":     purple,
+    "pink":       pink,
+    "red":        red,
+    "orange":     orange,
+    "yellow":     yellow,
+    "green":      green,
+    "teal":       teal,
+    "cyan":       cyan,
+    "white":      white,
+    "gray":       gray-600,
+    "gray-dark":  gray-800
+    );
+
+    input[type=checkbox] + label {
+        display: block;
+        margin: 0.2em;
+        cursor: pointer;
+        padding: 0.2em;
+    }
+
+    input[type=checkbox] {
+        display: none;
+    }
+
+    input[type=checkbox] + label:before {
+        content: "\2714";
+        border: 0.1em solid #000;
+        border-radius: 0.2em;
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        padding-left: 0.2em;
+        padding-bottom: 0.2em;
+        margin-right: 0.2em;
+        vertical-align: bottom;
+        color: transparent;
+        transition: .2s;
+    }
+
+    input[type=checkbox] + label:active:before {
+        transform: scale(0);
+    }
+
+    input[type=checkbox]:checked + label:before {
+        background-color: Pink;
+        border-color: MidnightBlue;
+        color: #fff;
+    }
+
+</style>
 <body>
 <!---navbar---->
 
@@ -53,7 +107,7 @@
     <div class="card text-white bg-danger mb-3">
         <img class="card-img-top" src="https://cdn.loveandlemons.com/wp-content/uploads/2013/06/strawberry-banana-smoothie.jpg" alt="Card image cap">
         <div class="card-body card-img-top" src="https://cdn.loveandlemons.com/wp-content/uploads/2013/06/strawberry-banana-smoothie.jpg">
-        <h5 class="card-title">Strawberry Banana Smoothie</h5>
+        <h5 class="card-title">Strawberry Banana Smoothies:</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <a class="btn btn-primary" href="https://www.loveandlemons.com/strawberry-banana-smoothie/" role="button">More Info</a>
         </div>
@@ -63,13 +117,22 @@
         <blockquote class="blockquote mb-0 card-body">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
             <a class="btn btn-danger" href="https://www.liveeatlearn.com/strawberry-banana-smoothie/" role="button">More Info</a>
+            <input type="checkbox" id="fruit1" name="fruits" value="Bananas">
+            <label for="fruit1">Bananas</label>
+            <input type="checkbox" id="fruit2" name="fruits" value="Strawberries">
+            <label for="fruit2">Strawberries</label>
+            <input type="checkbox" id="fruit3" name="fruits" value="Blueberries">
+            <label for="fruit3">Milk</label>
+            <input type="checkbox" id="fruit4" name="fruits" value="Apples">
+            <label for="fruit4">Honey</label>
         </blockquote>
     </div>
     <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <img class="card-img-top" src="https://cdn.loveandlemons.com/wp-content/uploads/2013/06/strawberry-banana-smoothie.jpg" alt="Card image cap">
+        <div class="card-body card-img-top" src="https://cdn.loveandlemons.com/wp-content/uploads/2013/06/strawberry-banana-smoothie.jpg">
+            <h5 class="card-title">Strawberry Banana Smoothie</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <a class="btn btn-primary" href="https://www.loveandlemons.com/strawberry-banana-smoothie/" role="button">More Info</a>
         </div>
     </div>
     <div class="card bg-primary text-white text-center p-3">

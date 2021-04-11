@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import smtplib
 import time
 import requests
+from smoothierecs import Smoothies
 
 
 
@@ -41,9 +42,6 @@ class Recipes(db.Model):
 #must go after 'models'
 db.create_all();
 
-
-
-
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
@@ -75,7 +73,7 @@ def home():
 
     return render_template('home.html')
 
-@app.route('/get-your-smoothie', methods=['GET', 'POST'])
+@app.route('/get-smoothie', methods=['GET', 'POST'])
 def find():
     fruits = 'nothing'
     if request.method == 'POST':
@@ -93,7 +91,9 @@ def find():
             return render_template("home.html")
         if 'Apples' in fruits:
             return render_template("home.html")
-    return render_template("selection.html")
+    if request.method == 'POST':
+        return render_template("selection.html", srecs=Smoothies(int(request.form.get("recs"))))
+    return render_template("selection.html", srecs=Smoothies(0))
 
 @app.route('/browse-recipes', methods=['GET', 'POST'])
 def browse():
